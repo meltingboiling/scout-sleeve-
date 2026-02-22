@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "182198637056",
+    "project_id": "scout-sleeve",
+    "storage_bucket": "scout-sleeve.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182198637056:android:7c1f54c1ed8ea6cd46bee5",
+        "android_client_info": {
+          "package_name": "com.scoutsleeve"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1lP1bVCRRDsLH1oGCFxQtn-iavelz5jI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182198637056:android:86be6ef16146b3d946bee5",
+        "android_client_info": {
+          "package_name": "com.scoutsleevestable"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1lP1bVCRRDsLH1oGCFxQtn-iavelz5jI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
