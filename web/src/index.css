@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* â”€â”€â”€ Google Fonts are loaded via index.html â”€â”€â”€ */
+
+/* â”€â”€â”€ Base Reset â”€â”€â”€ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: #020d08;
+  color: #e2fae9;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* â”€â”€â”€ Scrollbars â”€â”€â”€ */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #061a10; }
+::-webkit-scrollbar-thumb { background: #145233; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #22c55e; }
+
+/* â”€â”€â”€ AG Grid Overrides â”€â”€â”€ */
+.ag-theme-alpine-dark {
+  --ag-background-color: transparent !important;
+  --ag-odd-row-background-color: rgba(255,255,255,0.02) !important;
+  --ag-header-background-color: rgba(4, 20, 10, 0.9) !important;
+  --ag-border-color: rgba(34,197,94,0.1) !important;
+  --ag-row-hover-color: rgba(34,197,94,0.07) !important;
+  --ag-selected-row-background-color: rgba(34,197,94,0.12) !important;
+  --ag-font-family: 'DM Sans', sans-serif !important;
+  --ag-font-size: 13px !important;
+  --ag-foreground-color: #c8f0d5 !important;
+  --ag-header-foreground-color: #4ade80 !important;
+  --ag-cell-horizontal-padding: 16px !important;
+  --ag-row-height: 52px !important;
+  --ag-header-height: 44px !important;
+}
+
+.ag-theme-alpine-dark .ag-header-cell-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.ag-theme-alpine-dark .ag-row {
+  border-bottom: 1px solid rgba(34,197,94,0.06) !important;
+  transition: background 0.15s ease;
+}
+
+.ag-theme-alpine-dark .ag-cell {
+  display: flex;
+  align-items: center;
+}
+
+/* â”€â”€â”€ Custom Components â”€â”€â”€ */
+@layer components {
+  .panel {
+    @apply border border-grass-500/10 rounded-xl backdrop-blur-sm;
+    background: linear-gradient(145deg, rgba(14,30,20,0.9) 0%, rgba(6,16,10,0.95) 100%);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+  }
+
+  .metric-card {
+    @apply panel p-5 flex flex-col gap-2 transition-all duration-300;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium font-mono;
+  }
+
+  .btn-primary {
+    @apply bg-grass-600 text-white font-display font-semibold tracking-wide 
+           px-4 py-2 rounded-lg transition-all duration-200 uppercase text-sm;
+    box-shadow: 0 0 20px rgba(34,197,94,0.2);
+  }
+  .btn-primary:hover { @apply bg-grass-500; }
+  .btn-primary:active { transform: scale(0.95); }
+
+  .btn-ghost {
+    @apply text-grass-400 px-3 py-1.5 rounded-lg transition-all duration-200 text-sm;
+  }
+  .btn-ghost:hover {
+    @apply bg-grass-500/10;
+    color: #86efac;
+  }
+
+  .input-field {
+    @apply bg-pitch-800 border border-grass-500/20 rounded-lg px-3 py-2 text-sm text-white
+           transition-all duration-200;
+  }
+  .input-field:focus {
+    @apply outline-none;
+    border-color: rgba(34,197,94,0.5);
+    box-shadow: 0 0 0 1px rgba(34,197,94,0.3);
+  }
+  .input-field::placeholder { color: rgba(74,222,128,0.4); }
+
+  .score-pill {
+    @apply inline-flex items-center justify-center rounded-full font-mono font-semibold text-sm w-12 h-8;
+  }
+}
+
+/* â”€â”€â”€ Score Color Utilities â”€â”€â”€ */
+.score-high { background: linear-gradient(90deg, #15803d, #22c55e); color: white; }
+.score-mid  { background: linear-gradient(90deg, #b45309, #f59e0b); color: white; }
+.score-low  { background: linear-gradient(90deg, #b91c1c, #ef4444); color: white; }
+
+.valgus-good   { color: #4ade80; }
+.valgus-warn   { color: #fbbf24; }
+.valgus-danger { color: #f87171; }
+
+/* â”€â”€â”€ Pitch pattern background â”€â”€â”€ */
+.pitch-bg {
+  background-color: #020d08;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 48px,
+      rgba(34,197,94,0.025) 48px,
+      rgba(34,197,94,0.025) 50px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 48px,
+      rgba(34,197,94,0.025) 48px,
+      rgba(34,197,94,0.025) 50px
+    );
+}
+
+/* â”€â”€â”€ Recharts Overrides â”€â”€â”€ */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: rgba(34,197,94,0.08) !important;
+}
+.recharts-text { fill: #86efac !important; font-size: 11px; }
+.recharts-tooltip-wrapper { outline: none; }
